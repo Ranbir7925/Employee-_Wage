@@ -6,20 +6,25 @@ Emp_check=$(( RANDOM %3 ))
 Wage_Per_Hr=20
 Full_Day_Hrs=8
 Part_Time_Hrs=4
-if [ $Emp_check -eq 1 ]
-then
+
+case $Emp_check in
+  1)
   echo "Employee Is Present..."
   Wage=$(( Wage_Per_Hr * Full_Day_Hrs ))
   echo "Total Wage is $Wage "
+  ;;
 
-elif [ $Emp_check -eq 2 ]
-then
-
+  2)
   echo "Employee Is Part Time Present..."
   Wage=$(( Wage_Per_Hr * Part_Time_Hrs ))
   echo "Part Time Wage is $Wage "
+  ;;
 
-else
+  0)
   echo "Employee Is Not Present..."
+  ;;
 
-fi
+  *)
+  echo "INVALID"
+  ;;
+esac
